@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 PHONE TRACKER BOT - Number Information</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-search-location"></i>
+                <h1>PHONE TRACKER BOT</h1>
+                <span>Real-time Number Information</span>
+            </div>
+            <div class="status">
+                <span class="status-indicator online"></span>
+                <span>LIVE - 99.9% Accuracy</span>
+            </div>
+        </header>
+
+        <!-- Main Search Panel -->
+        <div class="search-panel">
+            <div class="input-group">
+                <label><i class="fas fa-mobile-alt"></i> Enter Phone Number</label>
+                <input type="tel" id="phoneNumber" placeholder="91XXXXXXXXXX" maxlength="13">
+                <small>Country code ke saath (91 for India)</small>
+            </div>
+            
+            <button class="track-btn" onclick="trackNumber()">
+                <i class="fas fa-search"></i>
+                <span>TRACK NUMBER</span>
+            </button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Tracking Number... Please Wait</p>
+        </div>
+
+        <!-- Results Panel -->
+        <div id="resultsPanel" class="results-panel hidden">
+            <h2><i class="fas fa-chart-line"></i> Tracking Results</h2>
+            
+            <div class="result-grid">
+                <div class="result-card carrier">
+                    <i class="fas fa-network-wired"></i>
+                    <h3 id="carrier">Carrier</h3>
+                    <p id="carrierInfo">-</p>
+                </div>
+                
+                <div class="result-card location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3 id="location">Location</h3>
+                    <p id="locationInfo">-</p>
+                </div>
+                
+                <div class="result-card type">
+                    <i class="fas fa-mobile"></i>
+                    <h3>Number Type</h3>
+                    <p id="numberType">-</p>
+                </div>
+                
+                <div class="result-card validity">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Validity</h3>
+                    <p id="validity">-</p>
+                </div>
+            </div>
+
+            <div class="extra-info">
+                <h3>Additional Information</h3>
+                <div id="extraInfo">-</div>
+            </div>
+
+            <button class="new-search" onclick="newSearch()">
+                <i class="fas fa-redo"></i> Track Another Number
+            </button>
+        </div>
+
+        <!-- Error Panel -->
+        <div id="errorPanel" class="error-panel hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Tracking Failed!</h3>
+            <p id="errorMessage">Please try again.</p>
+            <button onclick="newSearch()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
